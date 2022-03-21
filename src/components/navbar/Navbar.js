@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+import { logout } from '../../store/actions/user-action';
+
 const Navbar = (props) => {
   const { user } = props;
   return (
@@ -19,7 +21,7 @@ const Navbar = (props) => {
                     Login
                   </Link>
                 ) : (
-                  <button className="btn btn-outline-danger" >Logout</button>
+                  <button className="btn btn-outline-danger" onClick={()=>props.logout()}>Logout</button>
                 )}
               </li>
             </ul>
@@ -32,4 +34,4 @@ const Navbar = (props) => {
 
 const mapPropsToState = ({ user }) => ({ user });
 
-export default connect(mapPropsToState)(Navbar);
+export default connect(mapPropsToState, {logout})(Navbar);

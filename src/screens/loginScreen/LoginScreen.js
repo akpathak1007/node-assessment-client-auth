@@ -10,11 +10,8 @@ import { useNavigate } from "react-router-dom";
 import HomeScreen from "../HomeScreen/HomeScreen";
 
 const LoginScreen = (props) => {
-  console.log('hello')
-  console.log(props.user.auth);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
   const { user } = props;
   if (user.auth) {
     return <HomeScreen />;
